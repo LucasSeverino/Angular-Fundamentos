@@ -5,12 +5,12 @@ import { Photo } from "../photo/photo.model";
 import { Observable } from "rxjs";
 
 @Component({
-    templateUrl: './photo-details.component.html',
-    styleUrls: ['./photo-details.component.css']
+    templateUrl: './photo-details.component.html'
 })
 export class PhotoDetailsComponent implements OnInit{
 
     photo$: Observable<Photo>;
+    photoId: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -18,6 +18,8 @@ export class PhotoDetailsComponent implements OnInit{
     ) { }
 
     ngOnInit() {
-        this.photo$ = this.photoService.findById(this.route.snapshot.params.photoId);
+        this.photoId = this.route.snapshot.params.photoId
+        this.photo$ = this.photoService.findById(this.photoId);
+        
     }
 }
