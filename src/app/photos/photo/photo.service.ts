@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
 import { PhotoComment } from './photo-comment.model';
 import { map, catchError } from 'rxjs/operators';
 import { of, throwError } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
-const API = 'http://localhost:3000';
+const API = environment.ApiUrl;
 
 @Injectable({
   providedIn: 'root'
